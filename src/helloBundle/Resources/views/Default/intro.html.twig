@@ -1,0 +1,31 @@
+{# empty Twig template #}
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="logo-intro"> </div>
+     <h1 class="allprofils">All profils </h1>
+    <div class="intro-gallary">
+       
+    </div>
+    <div class="reg"> <h2>Hi...</h2>
+    <form action="save_user.php" method="post">
+    <!--**** save_user.php - это адрес обработчика.  То есть, после нажатия на кнопку "Зарегистрироваться", данные из полей  отправятся на страничку save_user.php методом "post" ***** -->
+<p>
+    <label>Login<br></label>
+    <input name="login" type="text" size="15" maxlength="15">
+    </p>
+<!--**** В текстовое поле (name="login" type="text") пользователь вводит свой логин ***** -->
+<p>
+    <label>Paswword<br></label>
+    <input name="password" type="password" size="15" maxlength="15">
+    </p>
+<!--**** В поле для паролей (name="password" type="password") пользователь вводит свой пароль ***** --> 
+<p>
+    <input type="submit" name="submit" value="Log in">
+    <input type="submit" name="submit" value="Registration">
+    
+<!--**** Кнопочка (type="submit") отправляет данные на страничку save_user.php ***** --> 
+    
+    </div>
+
+ 
+{% endblock %}

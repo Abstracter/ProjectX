@@ -1,0 +1,9 @@
+hello_homepage:
+    path:     /hello
+    defaults: { _controller: helloBundle:Default:index }
+intro:
+    path:    /intro
+    defaults: { _controller: helloBundle:Default:intro }
+    
+
+    
