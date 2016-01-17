@@ -1,0 +1,16 @@
+{% block body %}
+<body>
+<h3>Registration</h3>
+<form method="POST" action="register/reg" id="sign-up">
+<table border="1" cellspacing="0" cellpadding="10">
+<tr><td>Username:<td> <input type="text" maxlength="20" size="10" name="username">
+<tr><td>Email:<td> <input type="text" maxlength="40" size="10" name="email">
+<tr><td>Nume:<td> <input type="text" maxlength="20" size="10" name="nume">
+<tr><td>Prenume:<td> <input type="text" maxlength="20" size="10" name="prenume">
+<tr><td>Password:<td> <input type="password" maxlength="32" size="10" name="pass">
+<tr><td>Info:<td > <textarea id="info" name="info" cols="40" rows="5"></textarea>
+<tr><td><td><input type="submit" value="Sign UP"></tr>
+</table>
+</form>
+</body>
+{% endblock %}

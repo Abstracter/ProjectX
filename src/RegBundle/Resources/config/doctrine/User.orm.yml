@@ -1,0 +1,24 @@
+# src/RegBundle/Resources/config/doctrine/User.orm.yml
+RegBundle\Entity\User:
+    type: entity
+    table: user
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        Username:
+            type: string
+            length: 100
+        Pass:
+            type: string
+            lenght: 100
+        Info:
+            type: text
+        Nume:
+            type: text
+        Prenume:
+            type: text
+        Email:
+            type: string
+            length: 100

@@ -13,9 +13,13 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
+          $tmp = $this->get('session')->get('login');
+    if (empty($tmp))
+    { return $this->render('RegBundle:Default:logare.html.twig');}
+    else 
+        {
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-        ));
+        ));}
     }
 }

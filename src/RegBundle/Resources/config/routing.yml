@@ -1,0 +1,20 @@
+reg_homepage:
+    path:     /register
+    defaults: { _controller: RegBundle:Default:index }
+regist:
+    path:     register/reg
+    defaults: { _controller: RegBundle:Default:reg }
+log_homepage:
+    path:     /logare
+    defaults: { _controller: RegBundle:Default:loagare }   
+login:
+    path:     logare/log
+    defaults: { _controller: RegBundle:Default:log}
+    
+exit:
+    path:     /exit
+    defaults: { _controller: RegBundle:Default:exit}
+
+my_profile:
+    path:     /myprofile
+    defaults: { _controller: RegBundle:Default:MyProfile}

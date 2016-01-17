@@ -1,3 +1,7 @@
+reg:
+    resource: "@RegBundle/Resources/config/routing.yml"
+    prefix:   /
+
 hello:
     resource: "@helloBundle/Resources/config/routing.yml"
     prefix:   /

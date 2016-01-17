@@ -1,0 +1,19 @@
+{% block body %}
+<body>			
+    <h3>LOG IN</h3>
+    <form method="POST" action="logare/log" id="login">
+      <table border="1" cellspacing="0" cellpadding="10">
+           <tr><td><p>Username:</p><td> <input type="text" maxlength="20" size="10" name="username">
+           <tr><td><p>Password:</p><td> <input type="password" maxlength="20" size="10" name="pass">
+           <tr><td><td><input type="submit" value="LOG IN">
+                   </tr>
+      </table>
+    </form>
+    
+    <form method="POST" action="register" id="register">
+        <tr><td><td><input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
+{%endblock%}
