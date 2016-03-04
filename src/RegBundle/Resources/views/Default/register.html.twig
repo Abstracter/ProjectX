@@ -1,16 +1,64 @@
+{% extends 'base.html.twig' %}
+{% block header %}{%endblock%}
 {% block body %}
 <body>
-<h3>Registration</h3>
-<form method="POST" action="register/reg" id="sign-up">
-<table border="1" cellspacing="0" cellpadding="10">
-<tr><td>Username:<td> <input type="text" maxlength="20" size="10" name="username">
-<tr><td>Email:<td> <input type="text" maxlength="40" size="10" name="email">
-<tr><td>Nume:<td> <input type="text" maxlength="20" size="10" name="nume">
-<tr><td>Prenume:<td> <input type="text" maxlength="20" size="10" name="prenume">
-<tr><td>Password:<td> <input type="password" maxlength="32" size="10" name="pass">
-<tr><td>Info:<td > <textarea id="info" name="info" cols="40" rows="5"></textarea>
-<tr><td><td><input type="submit" value="Sign UP"></tr>
+    <div class="reg-main">
+<h2>Registration</h2>
+<hr>
+<form method="POST" action="{{ url('regist') }}" id="sign-up" enctype="multipart/form-data">
+
+ <br> <input placeholder="User Name" type="text" maxlength="20" size="10" name="username"><br>
+<hr>
+ <br> <input placeholder="Enter email" type="text" maxlength="40" size="10" name="email"><br>
+<hr>
+<br> <input placeholder="Name" type="text" maxlength="20" size="10" name="nume"><br>
+<hr>
+<br><input placeholder="Subname"type="text" maxlength="20" size="10" name="prenume"><br><hr>
+
+<br><input placeholder="Password" type="password" maxlength="32" size="10" name="pass"><br><hr>
+<br><input placeholder="Confirm Password" type="password" maxlength="32" size="10" name="confirmpass"><br><hr>
+<br> <select id="year" name="an">
+  <script>
+  var myDate = new Date();
+  var year = myDate.getFullYear();
+  for(var i = year; i > 1900; i--){
+	  document.write('<option value="'+i+'">'+i+'</option>');
+  }
+    </script>
+    </select>
+  
+        <select id='gMonth1' name="luna">
+    <option value=''>--Select Month--</option>
+    <option selected value='1'>Janaury</option>
+    <option value='2'>February</option>
+    <option value='3'>March</option>
+    <option value='4'>April</option>
+    <option value='5'>May</option>
+    <option value='6'>June</option>
+    <option value='7'>July</option>
+    <option value='8'>August</option>
+    <option value='9'>September</option>
+    <option value='10'>October</option>
+    <option value='11'>November</option>
+    <option value='12'>December</option>
+    </select>
+ <select id="day" name="zi">
+  <script>
+ 
+  for(var j = 1; j <= 31; j++){
+	  document.write('<option value="'+j+'">'+j+'</option>');
+  }
+    </script>
+    </select>
+<br><hr>
+<tr><td><td><input type="submit" value="Sign UP" name="submit"></tr>
 </table>
 </form>
+</div>
+{% for flashMessage in app.session.flashbag.get('notice') %}
+
+      <p style="color:red;">{{ flashMessage }}<p>
+
+{% endfor %}
 </body>
 {% endblock %}

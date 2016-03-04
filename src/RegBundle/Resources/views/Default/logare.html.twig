@@ -1,18 +1,83 @@
+	  
+{% extends 'base.html.twig' %}
+
+{% block header %}{%endblock%}
 {% block body %}
-<body>			
-    <h3>LOG IN</h3>
-    <form method="POST" action="logare/log" id="login">
-      <table border="1" cellspacing="0" cellpadding="10">
-           <tr><td><p>Username:</p><td> <input type="text" maxlength="20" size="10" name="username">
-           <tr><td><p>Password:</p><td> <input type="password" maxlength="20" size="10" name="pass">
-           <tr><td><td><input type="submit" value="LOG IN">
-                   </tr>
-      </table>
-    </form>
+    <html>
+        <style type="text/css">
+		body {
+
+		}
+		#outerWrapper{
+		width:40%;
+			overflow:hidden;
+			position:relative ;
+		}
+		img{max-width:100%!important;}
+		</style>
+                
+<body>	
+    	
+     
     
-    <form method="POST" action="register" id="register">
-        <tr><td><td><input type="submit" value="Register">
+
+        
+    
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<script src="{{ asset('js/LoopIt.js') }}"></script>
+<script>
+		 $(document).ready(function() {
+        $(".slide-1").loopItNow({
+             vertical:false,
+             effect:'',
+             captionTop:true,captionBottom:true,
+             speed : 3000,
+
+            });
+    });
+
+</script>
+                
+                
+   <!--****--------------------------------------------***** -->
+   <div class="container1">
+       <div>
+   <div class="reg"> 
+       <h2>Chat Online</h2>
+       <hr>
+    <form method="POST" action="{{ url('login') }}" id="login">
+<p>
+ 
+    <input name="username" placeholder="User Name" type="text" size="15" maxlength="15">
+    </p>
+    
+    <input name="pass" placeholder="Password" type="password" size="15" maxlength="15">
+    </p>
+
+    <input class="btl" type="submit" name="submit" value="Log in">
+     </form>
+<form method="POST" action="{{ url('reg_homepage') }}" id="register">
+        <input class="btl" type="submit" value="Register">
         </form>
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+
+      <p style="color:red;">{{ flashMessage }}<p>
+
+{% endfor %}
+    </div>
+    
+</body>
+
+
+ 
+  {% for flashMessage in app.session.flashbag.get('notice') %}
+
+      <p style="color:red;">{{ flashMessage }}<p>
+
+{% endfor %}
+
+    
     </div>
 </body>
 </html>

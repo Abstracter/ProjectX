@@ -1,0 +1,22 @@
+# src/RegBundle/Resources/config/doctrine/Image.orm.yml
+RegBundle\Entity\Image:
+    type: entity
+    table: img
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        image:
+            type: string
+            length: 100
+        user_image:
+            type: string
+            lenght: 100
+        like_image:
+            type: text
+        share_image:
+            type: text
+        profile_image:
+            type: boolean
+        

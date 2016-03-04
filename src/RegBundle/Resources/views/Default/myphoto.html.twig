@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %} 
+
+{% block body %}
+
+    <!--- qqqq---->
+    <div class="photo_profil">
+    <form  method="POST" action="{{ url('add_photo') }}" id="sign-up" enctype="multipart/form-data">
+    <input class="ph_btn" type="file" name="fileToUpload">
+    <input class="ph_btn" type="submit" value="Add" name="submit">
+    </form>
+   
+         {% for img in data %}
+         {% if img.getImage is not null %}
+         <img src="{{asset(img.getImage)}}" alt="img" />
+         {% endif %}
+         {%endfor%}
+         </div>
+         {{ knp_pagination_render(data) }}
+            </body>
+            
+{%endblock%}

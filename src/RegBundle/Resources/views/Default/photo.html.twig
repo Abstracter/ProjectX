@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %} 
+
+{% block body %}
+<body>
+    
+    
+    <!--- qqqq---->
+    <div class="photo_profil">
+ 
+         {% for img in data %}
+         {% if img.getImage is not null %}
+         <img src="{{asset(img.getImage)}}" alt="img" />
+         {% endif %}
+         {%endfor%}
+         </div>
+         {{ knp_pagination_render(data) }}
+            </body>
+            
+{%endblock%}

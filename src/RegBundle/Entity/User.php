@@ -3,7 +3,7 @@
 // src/RegBundle/Entity/User.php
 namespace RegBundle\Entity;
 
-class User
+ class User 
 {
     protected $User;
 
@@ -16,6 +16,13 @@ class User
     protected $Nume;
     
     protected $Email;
+    
+    protected $Img;
+    
+    
+    
+
+    
     /**
      * @var integer
      */
@@ -25,6 +32,7 @@ class User
      * @var string
      */
     private $Username;
+
 
 
     /**
@@ -179,5 +187,61 @@ class User
     public function getEmail()
     {
         return $this->Email;
+    }
+
+    /**
+     * Set img
+     *
+     * @param string $img
+     *
+     * @return User
+     */
+    public function setImg($img)
+    {
+        $this->Img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return string
+     */
+    public function getImg()
+    {
+        return $this->Img;
+    }
+
+    
+    
+  
+  
+    protected $An;
+
+
+
+    /**
+     * Set an
+     *
+     * @param string $an
+     *
+     * @return User
+     */
+    public function setAn($an)
+    {
+        $this->An = $an;
+
+        return $this;
+    }
+
+    /**
+     * Get an
+     *
+     * @return string
+     */
+    public function getAn()
+    {
+        return $this->An;
     }
 }

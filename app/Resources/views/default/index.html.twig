@@ -1,21 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="header"> 
-     <ul>
-        <li ><a href="#">Profil</a></li>
-        <li ><a class="active" href="#">Photos</a></li>
-        <li ><a href="#">Chat</a>
-           <li> <input type="search" id="search"> </li>
-        </li>
-      </ul>
-    </div>
+   <header>
+        <div clss="container_12">
+          <div class="grid_3">
+           
+          </div>
+           <div class="grid_9">
+               <nav class="top_menu">
+                   <ul>
+                       <li><a href="#"> Profil</a><span class="top_haver"></span></li>
+                       <li class="active"><a href="#"> Chat</a><span class="top_haver"></span></li>
+                       <li><a href="#"> Photo</a><span class="top_haver"></span></li>
+                        <li> <input type="search" id="search"> </li>
+                    </ul>
+               </nav>
+           </div>
+        
+         </div>
+    </header>   
+  
     <div class="article"> 
-     
+        <h1 class="pna"> Profil Name Age </h1>
     </div>
     <div class="profil1"></div>
     <div class="news"></div>
-    <div class="jos"></div>
+   
     <div class="logo"></div>
     
 {% endblock %}

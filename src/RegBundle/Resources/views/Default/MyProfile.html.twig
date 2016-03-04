@@ -1,1 +1,63 @@
-{# empty Twig template #}
+{% extends 'base.html.twig' %}
+
+{% block body %} 
+
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE" />   
+<body>
+ <!--   <div class="MyProfile" >
+        <h3>My Profile</h3>
+        <form method="post">
+       <table   border="1" style="width:100%">
+             
+             <tr><td><p>Image</p><td> <p><img src="{{asset(data.image)}}" alt="p"></p> </td> 
+             <tr><td><p>Id:</p><td> <p>{{data.id}}</p> </td>         
+             <tr><td><p>Username:</p><td> <p>{{data.username}}</p> 
+             <tr><td><p>Email:</p><td> <p>{{data.email}}</p> 
+             <tr><td><p>Nume:</p><td> <p>{{data.nume}}</p> 
+             <tr><td><p>Prenume:</p><td> <p>{{data.prenume}}</p> 
+             <tr><td><p>Info:</p><td > <textarea id="info1" cols="40" rows="5" readonly="enabled">{{data.info}}</textarea>  
+</table>
+
+
+</form>
+        </div>
+ -->
+    
+    
+    <div class="article"> 
+       <!--
+           <div class="grid_9">
+               <nav class="mid_menu">
+                   <ul>
+                       <li><a href="#"> Message</a><span class="top_haver"></span></li>
+                       <li ><a href="#"> Frends</a><span class="top_haver"></span></li>
+                       <li><a href="#"> Grups</a><span class="top_haver"></span></li>
+                        <li><a href="exit"> Music</a><span class="top_haver"></span></li>
+                        
+                    </ul>
+                  
+               </nav>
+               </div>-->
+               <div class="profil_1">
+                   <a href="#"><img src="{{asset(data.image)}}"  alt="{{data.username}}" height="320" width="250"> </a>
+            </div>
+            <div class="profil_name" >
+        <label>{{data.nume}} {{data.prenume}} </label> 
+        
+            {{  data.An | date("d/m/Y") }}
+                     </div>
+                     <div class="Gall_profile">
+                          <a href="#"><img src="{{asset(data.image)}}"  alt="{{data.username}}" height="150" width="150"> </a>
+                          <a href="#"><img src="{{asset(data.image)}}"  alt="{{data.username}}" height="150" width="150"> </a>
+                           <a href="#"><img src="{{asset(data.image)}}"  alt="{{data.username}}" height="150" width="150"> </a>
+                           <a href="#"><img src="{{asset(data.image)}}"  alt="{{data.username}}" height="150" width="150"> </a>
+                     </div>     
+         
+         </div>
+      
+    <div class="profil1"></div>
+    <div class="news">
+        <h2><a>Online</a></h2>
+    </div>
+</body>
+{%endblock%}

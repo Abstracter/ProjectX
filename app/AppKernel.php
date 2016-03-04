@@ -18,6 +18,10 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new helloBundle\helloBundle(),
             new RegBundle\RegBundle(),
+            new IndexBundle\IndexBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new ChatBundle\ChatBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

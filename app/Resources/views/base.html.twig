@@ -2,15 +2,38 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Holla!{% endblock %}</title>
         {% block stylesheets %}
-            <link href =" {{ asset('css/css.css') }}" rel="stylesheet">
+             <link rel="stylesheet" href="{{ asset('css/css.css') }}" />
         {% endblock %}
+       
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+       
     </head>
-    <body>
-        
+    {% block header %}
+  <header>
+        <div clss="container_12">
+          <div class="grid_3">
+           
+          </div>
+           <div class="grid_9">
+               <nav class="top_menu">
+                   <ul>
+                     <li><a href="{{url('profile', {'id': app.request.cookies.get('id')})}}"> Profil</a><span class="top_haver"></span></li>
+                       <li ><a href="{{url('chat_homepage')}}"> Message</a><span class="top_haver"></span></li>
+                         <li ><a href="#">Grup</a><span class="top_haver"></span></li>
+                           <li ><a href=""> Chat</a><span class="top_haver"></span></li>
+                       <li><a href="{{url('photo',{'id': app.request.cookies.get('id')})}}"> Photo</a><span class="top_haver"></span></li>
+                        <ul style="float:right;list-style-type:none;">
+    <li><a class="exit" href="{{ url('exit') }}">Exit</a></li>
+                    </ul>
+               </nav>
+           </div>
+         </div>
+    </header>
+    {%endblock%}
+    
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+        
+    
 </html>

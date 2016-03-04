@@ -1,0 +1,7 @@
+chat_homepage:
+    path: /chat
+    defaults: { _controller: ChatBundle:Default:index }
+
+process:
+    path: /chat/processing
+    defaults: { _controller: ChatBundle:Default:process}

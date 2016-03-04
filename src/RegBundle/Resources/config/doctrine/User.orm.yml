@@ -22,3 +22,10 @@ RegBundle\Entity\User:
         Email:
             type: string
             length: 100
+        Img:
+            type: string
+            length: 100
+        An:
+            type: date
+            
+       
