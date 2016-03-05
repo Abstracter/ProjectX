@@ -11,11 +11,11 @@ class DefaultController extends Controller
     {
        
           $connect=$this->get('database_connection');
-          $friends['result']=$connect->fetchAll('SELECT friends FROM `user'.$id.'`');
-          $data=[
+      
+           $friends['result']=$connect->fetchAll('SELECT friends FROM `user'.$id.'`');
+            $data=[
               'friends'=>$friends['result'],
-          ];
-
+                ];
         return $this->render('FriendsBundle:Default:index.html.twig',compact('data'));
         
         

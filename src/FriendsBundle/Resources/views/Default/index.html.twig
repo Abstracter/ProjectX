@@ -8,5 +8,7 @@
                 <h1>{{a.friends}}</h1>
             </div>
         {%endfor%}
-    {%endif%}
+    {%elseif data.nofriends is defined%}
+        <h1 style="margin-top:100px;">Nu sunt Prieteni</h1>
+     {%endif%}
 {%endblock%}
