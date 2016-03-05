@@ -96,12 +96,25 @@ class DefaultController extends Controller
             $user->setEmail($email);
             $user->setImg('../web/img/default.png');
             $user->setAn($Date);
-           
-
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($user);
             $em->flush();
-
+            
+            $connect=$this->get('database_connection');
+            $ida['result']=$connect->fetchAll('SELECT id FROM `user` ORDER BY `user`.`id` DESC LIMIT 1');
+            $id="";
+            foreach ($ida['result']as $a)
+            {
+               $id=$a['id']; 
+            }
+            $sql="CREATE TABLE IF NOT EXISTS user".$id." (
+            id INT(11) NOT NULL AUTO_INCREMENT,
+            img VARCHAR(255) DEFAULT NULL,
+            action VARCHAR(255) DEFAULT NULL,
+            friends INT(11) DEFAULT NULL,
+            PRIMARY KEY (id)
+            )";
+            $connect->query($sql);
     
     
         return $this->updateAction('created');} 
