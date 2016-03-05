@@ -1,0 +1,3 @@
+friends:
+    path:     /profile/{id}/friends
+    defaults: { _controller: FriendsBundle:Default:index }

@@ -6,6 +6,7 @@ imports:
     - { resource: "@RegBundle/Resources/config/services.yml" }
     - { resource: "@IndexBundle/Resources/config/services.yml" }
     - { resource: "@ChatBundle/Resources/config/services.yml" }
+    - { resource: "@FriendsBundle/Resources/config/services.yml" }
    
    
 

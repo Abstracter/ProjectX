@@ -24,6 +24,7 @@
                          <li ><a href="#">Grup</a><span class="top_haver"></span></li>
                            <li ><a href=""> Chat</a><span class="top_haver"></span></li>
                        <li><a href="{{url('photo',{'id': app.request.cookies.get('id')})}}"> Photo</a><span class="top_haver"></span></li>
+                       <li><a href="{{url('friends',{'id': app.request.cookies.get('id')})}}">Friends</a><span class="top_haver"></span></li>
                         <ul style="float:right;list-style-type:none;">
     <li><a class="exit" href="{{ url('exit') }}">Exit</a></li>
                     </ul>
