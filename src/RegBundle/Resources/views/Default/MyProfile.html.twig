@@ -25,19 +25,20 @@
     
     
     <div class="article"> 
-       <!--
+       {%if app.request.cookies.get('id') !=data.id%}
            <div class="grid_9">
                <nav class="mid_menu">
+                   <a href="#"><h1>Adauga</h1></a>
                    <ul>
                        <li><a href="#"> Message</a><span class="top_haver"></span></li>
-                       <li ><a href="#"> Frends</a><span class="top_haver"></span></li>
+                       <li ><a href="{{url('friends',{'id': data.id})}}"> Frends</a><span class="top_haver"></span></li>
                        <li><a href="#"> Grups</a><span class="top_haver"></span></li>
-                        <li><a href="exit"> Music</a><span class="top_haver"></span></li>
-                        
-                    </ul>
-                  
+                        <li><a href="exit"> Music</a><span class="top_haver"></span></li>       
+                    </ul> 
                </nav>
-               </div>-->
+               </div>
+        {%endif%}
+        
                <div class="profil_1">
                    <a href="#"><img src="{{asset(data.image)}}"  alt="{{data.username}}" height="320" width="250"> </a>
             </div>

@@ -4,9 +4,12 @@
     
     {%if data.friends is defined%}
         {%for a in data.friends %}
-            <div style="width: 200px; height: 200px;float:left; margin-top:100px; margin-left:10px;background-color: red; ">
+           {%if a.friends!=null%}
+            <a href="{{url('profile', {'id': a.friends})}}"><div style="width: 200px; height: 200px;float:left; margin-top:100px; margin-left:10px;background-color: red; ">
                 <h1>{{a.friends}}</h1>
-            </div>
+                </div>
+            </a>
+           {%endif%}
         {%endfor%}
     {%elseif data.nofriends is defined%}
         <h1 style="margin-top:100px;">Nu sunt Prieteni</h1>
