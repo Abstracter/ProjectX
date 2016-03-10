@@ -110,8 +110,11 @@ class DefaultController extends Controller
             $sql="CREATE TABLE IF NOT EXISTS user".$id." (
             id INT(11) NOT NULL AUTO_INCREMENT,
             img VARCHAR(255) DEFAULT NULL,
-            action VARCHAR(255) DEFAULT NULL,
+            coment TEXT DEFAULT NULL,
+            cereri INT(11) DEFAULT NULL,
             friends INT(11) DEFAULT NULL,
+            action VARCHAR(255) DEFAULT NULL,
+            likee TEXT DEFAULT NULL,
             PRIMARY KEY (id)
             )";
             $connect->query($sql);
