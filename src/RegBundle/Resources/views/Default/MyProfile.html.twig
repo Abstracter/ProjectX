@@ -36,6 +36,18 @@
                      <div class=" col-md-6  ">
                          <span>{{data.nume}}{{data.prenume}}</span>
                          <span>{{  data.An | date("d/m/Y") }}</span>
+        {%if data.id !=app.request.cookies.get('id')%}
+             <div class="grid_9">
+               <nav class="mid_menu">
+                   <ul>
+                       <li><a href="#"> Message</a><span class="top_haver"></span></li>
+                       <li ><a href="{{url('friends',{'id': data.id})}}"> Frends</a><span class="top_haver"></span></li>
+                       <li><a href="#"> Grups</a><span class="top_haver"></span></li>
+                       <li><a href="exit"> Music</a><span class="top_haver"></span></li> 
+                    </ul>
+               </nav>         
+           </div>
+        {%endif%}
                      </div>
                 </div>
              </div>
