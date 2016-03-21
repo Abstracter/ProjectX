@@ -172,21 +172,7 @@ width: 180px;
     text-align: center;
     background-color: #2A7DD9;
 }
-.container{
-        max-width: 340px;
-        margin: 0 auto;
-        position: relative;
-        top:80px;
-        padding-bottom: 30px;
-        box-shadow: 0px 5px 50px rgba(0,0,0,0.4);
-        box-sizing: border-box;
-        margin-top: 150px;
-       background-color: #fafafa;
-       border-radius: 3px;
-       text-align: center;
-      
-        
-}
+
 
 .reg{
     text-align: center;
