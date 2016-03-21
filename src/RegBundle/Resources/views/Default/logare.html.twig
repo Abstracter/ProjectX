@@ -1,7 +1,13 @@
 	  
 {% extends 'base.html.twig' %}
 
-{% block header %}{%endblock%}
+{% block header %}
+
+    <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet"/>
+    <link  href="{{ asset('css/font-awesome.css') }}"rel="stylesheet" />
+    <link  href="{{ asset('css/topmenu.css') }}" rel="stylesheet"/>
+    <link  href="{{ asset('css/css.css') }}" rel="stylesheet"/>
+{%endblock%}
 {% block body %}
     <html>
         <style type="text/css">
@@ -41,6 +47,7 @@
                 
                 
    <!--****--------------------------------------------***** -->
+   
    <div class="container1">
        <div>
    <div class="reg"> 
@@ -63,22 +70,9 @@
         {% for flashMessage in app.session.flashbag.get('notice') %}
 
       <p style="color:red;">{{ flashMessage }}<p>
-
-{% endfor %}
+    {% endfor %}
     </div>
-    
-</body>
-
-
- 
-  {% for flashMessage in app.session.flashbag.get('notice') %}
-
-      <p style="color:red;">{{ flashMessage }}<p>
-
-{% endfor %}
-
-    
-    </div>
+   
 </body>
 </html>
 {%endblock%}

@@ -1,5 +1,22 @@
 {% extends 'base.html.twig' %}
-
+ <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Holla!{% endblock %}</title>
+        {% block stylesheets %}
+             <link rel="stylesheet" href="{{ asset('css/css.css') }}" />
+              <link rel="stylesheet" href="{{ asset('css/top-menu.css') }}" />
+              <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet"/>
+              <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+        {% endblock %}
+        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+       
+    </head>
 {% block body %}
    <header>
         <div clss="container_12">
@@ -10,7 +27,7 @@
                <nav class="top_menu">
                    <ul>
                        <li><a href="#"> Profil</a><span class="top_haver"></span></li>
-                       <li class="active"><a href="#"> Chat</a><span class="top_haver"></span></li>
+                       <li ><a href="#"> Chat</a><span class="top_haver"></span></li>
                        <li><a href="#"> Photo</a><span class="top_haver"></span></li>
                         <li> <input type="search" id="search"> </li>
                     </ul>

@@ -3,21 +3,51 @@
 {% block body %}
 <body>
     <div class="reg-main">
-<h2>Registration</h2>
-<hr>
+        <div >
+    <h2>Registration</h2>
+    
 <form method="POST" action="{{ url('regist') }}" id="sign-up" enctype="multipart/form-data">
+    	<div class="col-xs-6 col-sm-6 col-md-6">
+    <div class="form-group">
+        <label>User Name</label>
+        <input placeholder="User Name" type="text" maxlength="20" size="10" name="username">
+    </div>
+            </div>
+<div class="form-group">
+    <label>User Name</label>
+<input placeholder="Enter email" type="text" maxlength="40" size="10" name="email">
+</div>
+    <div class="form-group">
+    <label>User Name</label>
+<input placeholder="Name" type="text" maxlength="20" size="10" name="nume">
+    </div>
+<div class="form-group">
+<label>User Name</label>
+<input placeholder="Subname"type="text" maxlength="20" size="10" name="prenume">
+</div>
+<div class="form-group">
+<label>User Name</label>
+<input placeholder="Password" type="password" maxlength="32" size="10" name="pass">
+</div>
+<div class="form-group">
+<label>User Name</label>
+<input placeholder="Confirm Password" type="password" maxlength="32" size="10" name="confirmpass">
+</div>
+        <div class="form-group">
+            <div class="maxl">
+  <label class="radio inline"> 
+      <input type="radio" name="sex" value="male" checked>
+      <span> Male </span> 
+   </label>
+  <label class="radio inline"> 
+      <input type="radio" name="sex" value="female">
+      <span>Female </span> 
+  </label>
+</div>
+        </div>  
+<div class="form-group">
 
- <br> <input placeholder="User Name" type="text" maxlength="20" size="10" name="username"><br>
-<hr>
- <br> <input placeholder="Enter email" type="text" maxlength="40" size="10" name="email"><br>
-<hr>
-<br> <input placeholder="Name" type="text" maxlength="20" size="10" name="nume"><br>
-<hr>
-<br><input placeholder="Subname"type="text" maxlength="20" size="10" name="prenume"><br><hr>
-
-<br><input placeholder="Password" type="password" maxlength="32" size="10" name="pass"><br><hr>
-<br><input placeholder="Confirm Password" type="password" maxlength="32" size="10" name="confirmpass"><br><hr>
-<br> <select id="year" name="an">
+<select id="year" name="an">
   <script>
   var myDate = new Date();
   var year = myDate.getFullYear();
@@ -50,9 +80,10 @@
   }
     </script>
     </select>
-<br><hr>
-<tr><td><td><input type="submit" value="Sign UP" name="submit"></tr>
-</table>
+</div>
+
+<input type="submit" value="Sign UP" name="submit">
+
 </form>
 </div>
 {% for flashMessage in app.session.flashbag.get('notice') %}

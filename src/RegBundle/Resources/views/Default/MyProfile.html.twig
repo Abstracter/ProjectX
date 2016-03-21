@@ -1,64 +1,51 @@
 {% extends 'base.html.twig' %}
 
 {% block body %} 
-
-<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE" />   
+    <head>
+        <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE" /> 
+    <meta charset="utf-8">
+    <title>{% block title %}Profile{% endblock %}</title>
+        {% block stylesheets %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Bootstrap -->
+     <link rel="stylesheet" href="{{ asset('css/css.css') }}" />
+    <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/topmenu.css') }}" />
+    
+ 
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+     {% endblock %}
+  </head>
 <body>
- <!--   <div class="MyProfile" >
-        <h3>My Profile</h3>
-        <form method="post">
-       <table   border="1" style="width:100%">
-             
-             <tr><td><p>Image</p><td> <p><img src="{{asset(data.image)}}" alt="p"></p> </td> 
-             <tr><td><p>Id:</p><td> <p>{{data.id}}</p> </td>         
-             <tr><td><p>Username:</p><td> <p>{{data.username}}</p> 
-             <tr><td><p>Email:</p><td> <p>{{data.email}}</p> 
-             <tr><td><p>Nume:</p><td> <p>{{data.nume}}</p> 
-             <tr><td><p>Prenume:</p><td> <p>{{data.prenume}}</p> 
-             <tr><td><p>Info:</p><td > <textarea id="info1" cols="40" rows="5" readonly="enabled">{{data.info}}</textarea>  
-</table>
-
-
-</form>
-        </div>
- -->
     
-    
-    <div class="article"> 
-       {%if app.request.cookies.get('id') !=data.id%}
-           <div class="grid_9">
-               <nav class="mid_menu">
-                   <a href="#"><h1>Adauga</h1></a>
-                   <ul>
-                       <li><a href="#"> Message</a><span class="top_haver"></span></li>
-                       <li ><a href="{{url('friends',{'id': data.id})}}"> Frends</a><span class="top_haver"></span></li>
-                       <li><a href="#"> Grups</a><span class="top_haver"></span></li>
-                        <li><a href="exit"> Music</a><span class="top_haver"></span></li>       
-                    </ul> 
-               </nav>
-               </div>
-        {%endif%}
-        
-               <div class="profil_1">
-                   <a href="#"><img src="{{asset(data.image)}}"  alt="{{data.username}}" height="320" width="250"> </a>
-            </div>
-            <div class="profil_name" >
-        <label>{{data.nume}} {{data.prenume}} </label> 
-        
-            {{  data.An | date("d/m/Y") }}
+ <div class="container profil-container">
+     <div class="row">
+         <div class="col-md-6">
+             <div class="container"><div class="row">
+                     <div class="col-md-6 col-xs-12">
+                      <a href="#"><img src="{{asset(data.image)}}"alt="{{data.username}}" height="320" width="200" class="img-thumbnail"> </a>
                      </div>
-                     <div class="Gall_profile">
-                          <a href="#"><img src="{{asset(data.image)}}"  alt="{{data.username}}" height="150" width="150"> </a>
-                          <a href="#"><img src="{{asset(data.image)}}"  alt="{{data.username}}" height="150" width="150"> </a>
-                           <a href="#"><img src="{{asset(data.image)}}"  alt="{{data.username}}" height="150" width="150"> </a>
-                           <a href="#"><img src="{{asset(data.image)}}"  alt="{{data.username}}" height="150" width="150"> </a>
-                     </div>     
-         
-         </div>
-      
-    <div class="profil1"></div>
-    <div class="news">
-        <h2><a>Online</a></h2>
-    </div>
+                     <div class=" col-md-6  ">
+                         <span>{{data.nume}}{{data.prenume}}</span>
+                         <span>{{  data.An | date("d/m/Y") }}</span>
+                     </div>
+                </div>
+             </div>
+         </div
+         <div class="col-md-6 col-xs-6"> </div>
+     </div>
+ </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
 </body>
 {%endblock%}
