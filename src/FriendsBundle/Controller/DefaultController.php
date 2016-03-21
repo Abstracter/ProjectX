@@ -23,6 +23,40 @@ class DefaultController extends Controller
            }
         return $this->render('FriendsBundle:Default:index.html.twig',compact('data'));
     }
+   public function adaugaprietenAction($id)
+    {
+         $repository = $this->getDoctrine()
+                              ->getRepository('RegBundle:User');
+        $e = $this->getDoctrine()->getEntityManager();
+        $query = $e->createQuery(
+          'SELECT user FROM RegBundle:user user WHERE user.id = :id') 
+              ->setParameter('id', $id)         
+              ->setMaxResults(1);
+     try {
+                  $result = $query->getSingleResult();
+         } 
+     catch (\Doctrine\Orm\NoResultException $e) {
+                  $result = null;
+          }
+          if($result==null){return $this->render('RegBundle:Default:UserNotFound.html.twig');}
+          else{
+           $connect=$this->get('database_connection');
+           $connect->executeUpdate('INSERT INTO `user'.$id.'`(cereri) VALUES ('.$_COOKIE['id'].')');
+           $cerere=$connect->fetchAll('SELECT cereri FROM `user'.$id.'` where cereri= '.$_COOKIE['id']);
+            $data=['id'=>$result->getId(),
+                   'username'=> $result->getUsername(),
+                   'email'=> $result->getEmail(),
+                   'nume'=>$result->getNume(),
+                   'prenume'=>$result->getPrenume(),
+                   'info'=>$result->getInfo(),
+                   'image'=>$result->getImg(),
+                   'An'=>$result->getAn(),
+                   'cereri'=>$cerere,
+                ];
+          return $this->render('RegBundle:Default:MyProfile.html.twig',array('data'=>$data));}
+
+                        
+    }
     
     public function creazaAction()
     {

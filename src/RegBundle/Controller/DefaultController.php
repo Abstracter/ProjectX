@@ -241,6 +241,8 @@ public function MyProfileAction($id)
           }
           if($result==null){return $this->render('RegBundle:Default:UserNotFound.html.twig');}
           else{
+           $connect=$this->get('database_connection');
+   $cerere['result']=$connect->fetchAll('SELECT cereri FROM `user'.$id.'` where cereri= '.$_COOKIE['id']);
             $data=['id'=>$result->getId(),
                    'username'=> $result->getUsername(),
                    'email'=> $result->getEmail(),
@@ -248,7 +250,9 @@ public function MyProfileAction($id)
                    'prenume'=>$result->getPrenume(),
                    'info'=>$result->getInfo(),
                    'image'=>$result->getImg(),
-                   'An'=>$result->getAn()];
+                   'An'=>$result->getAn(),
+                   'cereri'=>$cerere['result'],
+                ];
             
    
           return $this->render('RegBundle:Default:MyProfile.html.twig',array('data'=>$data));}

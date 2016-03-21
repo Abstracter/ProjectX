@@ -1,6 +1,9 @@
 friends:
     path:     /profile/{id}/friends
     defaults: { _controller: FriendsBundle:Default:index }
+adaugaprieten:
+    path:     /profilee/{id}
+    defaults: { _controller: FriendsBundle:Default:adaugaprieten }
 creaza:
     path:     /creaza
-    defaults: { _controller: FriendsBundle:Default:creaza }
+    defaults: { _controller: FriendsBundle:Default:creaza }    
