@@ -219,7 +219,10 @@ public function exitAction()
 public function MyProfileAction($id)
 {   
     if (!isset($_COOKIE['id'])){
-                return $this->redirectToRoute('index_homepage');
+        $connect=$this->get('database_connection');
+   $cerere['result']=$connect->fetchAll('SELECT DISTINCT cereri FROM `user'.$id.'` where cereri= '.$_COOKIE['id']);
+           $data=['cererip'=>$cerere['result'],];
+                return $this->redirectToRoute('index_homepage',  compact('data'));
                         }
                         else{
                     $repository = $this->getDoctrine()

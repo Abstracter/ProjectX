@@ -21,9 +21,9 @@
       
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     
+  
+    
    
-    
-    
     
     
     
@@ -141,69 +141,82 @@ function sendChat(message, nickname)
         
         <p id="name-area"></p>
         
-        <div id="chat-wrap"><div id="chat-area"></div></div>
-        
-        
-          
-       
+        <div id="chat-wrap">
+            
+            
+            <div id="chat-area"></div>
+                
+        </div>
+
          
+              
+              
         <form id="send-message-area" >
+         
             
-            
-            <textarea  class="emojis-wysiwyg" maxlength = '100' ></textarea>
-          
+            <textarea class="emojis-wysiwyg" maxlength = '100' ></textarea>
+             
 
         </form>
         
-       <textarea class="value" name="hide" style="display:none;" id="emojis-wysiwyg-value"></textarea>
+    <textarea class="value" name="hide"  id="emojis-wysiwyg-value"></textarea>
         
-        
-    </div>
+        </div>
+  
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>  
   <script src="<?php echo $view['assets']->getUrl('js/jquery.emojiarea.js')  ?>"></script>
   <script src="<?php echo $view['assets']->getUrl('js/basic/emojis.js')  ?>"></script>
+   <script src="<?php echo $view['assets']->getUrl('js/text_xchat.js')  ?>"></script>
+      
+
   
-    
-    <script>
-		$('.emojis-plain').emojiarea({wysiwyg: false});
-		
-		var $wysiwyg = $('.emojis-wysiwyg').emojiarea({wysiwyg: true});
-		var $wysiwyg_value = $('#emojis-wysiwyg-value');
-		
-		$wysiwyg.on('change', function() {
-			$wysiwyg_value.text($(this).val());
-		});
-		$wysiwyg.trigger('change');
-		</script>
+   
 
 
-<script>
+    <script type="text/javascript">
     
-    
-    
-$(function(){
- $("#send-message-area").keypress(function (e) {
-    if (e.keyCode == 13) {
-     	var text = $(".value").val();
-    				var maxLength = $(".value").attr("maxlength");  
-                    var length = text.length; 
+        // ask user for name with popup prompt    
+       name="vasea";
+    	// kick off chat
+        var chat =  new Chat();
+    	$(function() {
+    	
+    		 chat.getState(); 
+    		 
+    		 // watch textarea for key presses
+             $("#send-message-area").keydown(function(event) {  
+             
+                 var key = event.which;  
+           
+                 //all keys including return.  
+                 if (key >= 33) {
+                   
                      
-                    // send 
-                    if (length <= maxLength + 1) { 
+                     
+                     // don't allow new content if length is maxed out
+                     
+                  }  
+    		 																																																});
+    		 // watch textarea for release of key press
+    		 $('#send-message-area').keyup(function(e) {	
+    		 					 
+    			  if (e.keyCode == 13) { 
+    			  
+                    var text = $('.value').val();
+    				
+                    
                      
     			        chat.send(text, name);	
-    			        $(".value").val("");
-    			        $('#send-message-area>').empty();
-                    } else {
-                    
-    					$(".value").val(text.substring(0, maxLength));
-    					
-    				}	
-	
-    }
- });
-});
+    			        
+    			        
+              
+    				
+    				
+    			  }
+             });
+            
+    	});
     </script>
 
  
