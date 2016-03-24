@@ -14,13 +14,18 @@ class DefaultController extends Controller
           $tableExists = $connect->query("SHOW TABLES LIKE 'user".$id."'")->rowCount() > 0;
         if ($tableExists==1)
            {
-            $friends['result']=$connect->fetchAll('SELECT friends FROM `user'.$id.'`');
-            $data=['friends'=>$friends['result'],];
-           }
-        else
-           {
-               $data=['nofriends'=>'nu sa gasit prieteni',];
-           }
+            $friends['result']=$connect->fetchAll('SELECT friends FROM `user'.$id.'` WHERE friends>=1');
+            $scoate=array();
+            $c=0;
+             foreach ($friends['result'] as $as)
+                 foreach ($as as $b)
+                     if (($b!=="")||($b!==null)){$c++;$scoate[]=$b;}
+                      if ($c>0){
+                      $data=['friends'=>$connect->fetchAll('SELECT id,nume,prenume FROM user WHERE id IN('.implode(',',$scoate).')'),
+                            ];
+                      }else {$data=['nofriends'=>"nu sunt prieteni",];}
+         }else
+           {$data=['nofriends'=>'nu sa gasit prieteni',];}
         return $this->render('FriendsBundle:Default:index.html.twig',compact('data'));
     }
    public function adaugaprietenAction($id)

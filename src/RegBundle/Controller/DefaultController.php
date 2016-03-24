@@ -245,14 +245,17 @@ public function MyProfileAction($id)
            if ($id===$_COOKIE['id']){
    $cerere=$connect->fetchAll('SELECT DISTINCT cereri FROM `user'.$_COOKIE['id'].'`WHERE cereri>=1');
    $scoate=array();
-   foreach ($cerere as $as)
-      foreach ($as as $b)
-        $scoate[]=$b;
-   $cer=['cererip'=>$connect->fetchAll('SELECT nume,prenume FROM user WHERE id IN('.implode(',',$scoate).')'),];
-           }else{
+        $c=0;
+        foreach ($cerere as $as)
+           foreach ($as as $b)
+               if (($b!=="")||($b!==null)){$c++;$scoate[]=$b;}
+                     if ($c>0){
+        $cer=['cererip'=>$connect->fetchAll('SELECT nume,prenume FROM user WHERE id IN('.implode(',',$scoate).')'),];
+                     }else {$cer=['cererip'=>"",];}
+         }else{
    $cerere['result']=$connect->fetchAll('SELECT DISTINCT cereri FROM `user'.$id.'` where cereri='.$_COOKIE['id']);
         $cer=['cereri'=>$cerere['result'],];  
-   }
+        }
             $data=['id'=>$result->getId(),
                    'username'=> $result->getUsername(),
                    'email'=> $result->getEmail(),
