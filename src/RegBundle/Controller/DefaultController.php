@@ -219,10 +219,7 @@ public function exitAction()
 public function MyProfileAction($id)
 {   
     if (!isset($_COOKIE['id'])){
-        $connect=$this->get('database_connection');
-   $cerere['result']=$connect->fetchAll('SELECT DISTINCT cereri FROM `user'.$id.'` where cereri= '.$_COOKIE['id']);
-           $data=['cererip'=>$cerere['result'],];
-                return $this->redirectToRoute('index_homepage',  compact('data'));
+                return $this->redirectToRoute('index_homepage');
                         }
                         else{
                     $repository = $this->getDoctrine()
@@ -245,7 +242,17 @@ public function MyProfileAction($id)
           if($result==null){return $this->render('RegBundle:Default:UserNotFound.html.twig');}
           else{
            $connect=$this->get('database_connection');
-   $cerere['result']=$connect->fetchAll('SELECT DISTINCT cereri FROM `user'.$_COOKIE['id'].'`');
+           if ($id===$_COOKIE['id']){
+   $cerere=$connect->fetchAll('SELECT DISTINCT cereri FROM `user'.$_COOKIE['id'].'`WHERE cereri>=1');
+   $scoate=array();
+   foreach ($cerere as $as)
+      foreach ($as as $b)
+        $scoate[]=$b;
+   $cer=['cererip'=>$connect->fetchAll('SELECT nume,prenume FROM user WHERE id IN('.implode(',',$scoate).')'),];
+           }else{
+   $cerere['result']=$connect->fetchAll('SELECT DISTINCT cereri FROM `user'.$id.'` where cereri='.$_COOKIE['id']);
+        $cer=['cereri'=>$cerere['result'],];  
+   }
             $data=['id'=>$result->getId(),
                    'username'=> $result->getUsername(),
                    'email'=> $result->getEmail(),
@@ -254,11 +261,8 @@ public function MyProfileAction($id)
                    'info'=>$result->getInfo(),
                    'image'=>$result->getImg(),
                    'An'=>$result->getAn(),
-                   'cererip'=>$cerere['result'],
                 ];
-            
-   
-          return $this->render('RegBundle:Default:MyProfile.html.twig',array('data'=>$data));}
+          return $this->render('RegBundle:Default:MyProfile.html.twig',array('data'=>$data,'cer'=>$cer));}
 
                         }
    }

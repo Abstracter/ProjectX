@@ -43,6 +43,13 @@ class DefaultController extends Controller
            $connect=$this->get('database_connection');
            $connect->executeUpdate('INSERT INTO `user'.$id.'`(cereri) VALUES ('.$_COOKIE['id'].')');
            $cerere=$connect->fetchAll('SELECT cereri FROM `user'.$id.'` where cereri= '.$_COOKIE['id']);
+      if ($id===$_COOKIE['id']){
+            $cerere['result']=$connect->fetchAll('SELECT DISTINCT cereri FROM `user'.$_COOKIE['id'].'`WHERE cereri>=1');
+            $cer=['cererip'=>$cerere['result'],];
+        }else{
+             $cerere['result']=$connect->fetchAll('SELECT DISTINCT cereri FROM `user'.$id.'` where cereri='.$_COOKIE['id']);
+                $cer=['cereri'=>$cerere['result'],];  
+                  }
             $data=['id'=>$result->getId(),
                    'username'=> $result->getUsername(),
                    'email'=> $result->getEmail(),
@@ -51,9 +58,8 @@ class DefaultController extends Controller
                    'info'=>$result->getInfo(),
                    'image'=>$result->getImg(),
                    'An'=>$result->getAn(),
-                   'cereri'=>$cerere,
                 ];
-          return $this->render('RegBundle:Default:MyProfile.html.twig',array('data'=>$data));}
+          return $this->render('RegBundle:Default:MyProfile.html.twig',array('data'=>$data,'cer'=>$cer));}
 
                         
     }

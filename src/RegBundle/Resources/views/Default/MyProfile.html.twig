@@ -47,12 +47,14 @@
                     
                     <div class="col-md-6">
                         
-                      {%if data.id !=app.request.cookies.get('id')%}  
-                          {%if data.cereri !=null%}
-                    <button type="button" class="btn btn-success">Cerereaa a fost trimisa</button>
-                    {%else%}
-                    <a type="button" class="btn btn-danger"  href="{{url('adaugaprieten',{'id': data.id})}}">Adauga</a>
-                    {%endif%}
+                      {%if data.id !=app.request.cookies.get('id')%}
+                        {%if cer.cereri is defined%}    
+                            {%if cer.cereri !=null%}
+                             <button type="button" class="btn btn-success">Cerereaa a fost trimisa</button>
+                             {%else%}
+                              <a type="button" class="btn btn-danger"  href="{{url('adaugaprieten',{'id': data.id})}}">Adauga</a>
+                               {%endif%}
+                        {%endif%}
                             <div class="grid_9">
                                 <nav class="mid_menu">
                                     <ul>
@@ -75,12 +77,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    {% if data.cererip is defined %}
-                    {% for cer in data.cererip %}
-                     <a href="#" type="button" class="btn btn-success">Acepta</a>
-                     <a href="#" type="button" class="btn btn-Danger">Refuza</a>
+                  {% if cer.cererip is defined %}
+                    {% for cer in cer.cererip %}
+                        <div style="background-color: blueviolet; width: 200px; float:left; margin-right: 20px; ">
+                            <h3>{{cer.nume}} {{cer.prenume}}</h3>
+                            <a href="#" type="button" class="btn btn-success">Acepta</a>
+                            <a href="#" type="button" class="btn btn-Danger">Refuza</a>
+                        </div>
                     {% endfor %}
-                     {% endif %}
+                   {% endif %}
                 </div>
             </div>
      </div>
