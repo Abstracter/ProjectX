@@ -24,59 +24,67 @@
     <![endif]-->
      {% endblock %}
   </head>
-<body>
-    
- <div class="container profil-container">
-     <div class="row">
-         <div class="col-md-6">
-             <div class="container"><div class="row">
-                     <div class="col-md-6 col-xs-12">
-                      <a href="#"><img src="{{asset(data.image)}}"alt="{{data.username}}" height="320" width="200" class="img-thumbnail"> </a>
-                     </div>
-                     
-                 {%if data.cererip is defined%}
-                 {%for cer in data.cererip%}
+<body> 
+ <div class="container profil-container ">
+     <div class="row ">
+         <div class="col-md-12 ">
+             <div class="row">
+                 <div class="col-md-6">
+                     <a href="#"><img  src="{{asset(data.image)}}"alt="{{data.username}}" height="320" width="200" class="img-thumbnail"> </a>
+                 </div>
+                 <div class="col-md-6">
+                     <p>  
+                         <span>{{data.nume}}{{data.prenume}}</span>
+                         <span>{{  data.An | date("d/m/Y") }}</span>
+                     </p>
+                 </div>
+             </div>
+         </div>
+                     <div class="row ">
+        <div class="col-md-12 ">
+            <div class="row">
+                <div class="col-md-6">   
+                    
+                    <div class="col-md-6">
+                        
+                      {%if data.id !=app.request.cookies.get('id')%}  
+                          {%if data.cereri !=null%}
+                    <button type="button" class="btn btn-success">Cerereaa a fost trimisa</button>
+                    {%else%}
+                    <a type="button" class="btn btn-danger"  href="{{url('adaugaprieten',{'id': data.id})}}">Adauga</a>
+                    {%endif%}
+                            <div class="grid_9">
+                                <nav class="mid_menu">
+                                    <ul>
+                                        <li><a href="#"> Message</a><span class="top_haver"></span></li>
+                                        <li ><a href="{{url('friends',{'id': data.id})}}"> Frends</a><span class="top_haver"></span></li>
+                                        <li><a href="#"> Grups</a><span class="top_haver"></span></li>
+                                        <li><a href="exit"> Music</a><span class="top_haver"></span></li> 
+                                     </ul>
+                                </nav>
+                            </div>
+                        {%endif%}
+                    </div>
+                 </div>
+                    </div>
+           </div>
+      </div>
+    </div>                     
+ </div>
+         
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% if data.cererip is defined %}
+                    {% for cer in data.cererip %}
                      <a href="#" type="button" class="btn btn-success">Acepta</a>
                      <a href="#" type="button" class="btn btn-Danger">Refuza</a>
-                 {%endfor%}
-                 {%endif%}
-                     <div class=" col-md-6  ">
-                                    {%if data.id !=app.request.cookies.get('id')%}
-               
-          
-             <div class="grid_9">
-               <nav class="mid_menu">
-                   <ul>
-                       <li><a href="#"> Message</a><span class="top_haver"></span></li>
-                       <li ><a href="{{url('friends',{'id': data.id})}}"> Frends</a><span class="top_haver"></span></li>
-                       <li><a href="#"> Grups</a><span class="top_haver"></span></li>
-                       <li><a href="exit"> Music</a><span class="top_haver"></span></li> 
-                    </ul>
-               </nav>
-                       {%if data.cereri !=null%}
-                    <button type="button" class="btn btn-success">Cerereaa a fost trimisa</button>
-               {%else%}
-                    <a type="button" class="btn btn-danger"  href="{{url('adaugaprieten',{'id': data.id})}}">Adauga</a>
-               {%endif%}
-           </div>
-        {%endif%}
-                      
-                         <div class="container">
-                             <div class="row">
-                                 <div class="col-lg-12">
-                                        <span>{{data.nume}}{{data.prenume}}</span>
-                         <span>{{  data.An | date("d/m/Y") }}</span>
-                          </div>
-                             </div>
-                         </div>
-                     </div>
+                    {% endfor %}
+                     {% endif %}
                 </div>
-             </div>
-                     </div>
-         
-         <div class="col-md-6 col-xs-6"> </div>
+            </div>
      </div>
- </div>
+ 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

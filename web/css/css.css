@@ -453,3 +453,11 @@ hr{
 }
 /*registation*/
 
+/*FeeD*/
+.container-feed{
+ background-color: #DCDCDC; 
+ padding: 20px;
+ width: 50%;
+ border:#778899 solid 2px;
+
+}
