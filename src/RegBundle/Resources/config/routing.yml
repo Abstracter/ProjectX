@@ -16,8 +16,8 @@ exit:
 
 
 add_photo:
-    path:     myprofile/photo/add
-    defaults: { _controller: RegBundle:Default:AddPhoto}
+    path:     profile/{id}/photo/add
+    defaults: { _controller: RegBundle:Photo:AddPhoto}
     
 profile:
     path: /profile/{id}
@@ -29,4 +29,8 @@ Group:
     
 photo:
     path: profile/{id}/photo
-    defaults: { _controller: RegBundle:Default:Photo}
+    defaults: { _controller: RegBundle:Photo:Photo}
+
+test:
+    path: /test
+    defaults: { _controller: RegBundle:Photo:test}

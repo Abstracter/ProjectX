@@ -190,20 +190,21 @@ class DefaultController extends Controller
                   $result = null;
           }
           
-         if($result==null){
+         if($result===null){
          return $this->updateAction('gresit');}
               
                        else
                           {
                            
-                        setcookie ("id",  $result->getId() , time() + 3600);
-                        setcookie ("login", $result->getUsername() , time() + 3600);
+                        setcookie ("id",  $result->getId() , time() + 24*3600);
+                        setcookie ("login", $result->getUsername() , time() + 24*3600);
                            
                         
                            
         {return $this->redirectToRoute('index_homepage');}
               }}
-          
+                
+  
          
  }
     }
@@ -211,7 +212,7 @@ class DefaultController extends Controller
 public function exitAction()
      { 
      setcookie ("id", "", time() - 3600);
-     setcookie ("login", "", time() - 3600);
+     setcookie ("login", "", time() - 24*3600);
        
         return $this->redirectToRoute('index_homepage');}
 
@@ -294,86 +295,7 @@ public function MyProfileAction($id)
                 return $this->redirect($this->generateUrl('reg_homepage')); }  
     } 
     
-    public function PhotoAction($id)
-    { 
-        $tmp = $_COOKIE['id'];
-        if ($tmp===null){
-                return $this->redirectToRoute('index_homepage');
-                        }
-                        else{
-                            
-                            if($this->Check($id)==true){
-        $repository = $this->getDoctrine()
-                        ->getRepository('RegBundle:Image');
-           
   
-        $e = $this->getDoctrine()->getEntityManager();
-        $query = $e->createQuery(
-          'SELECT img FROM RegBundle:image img WHERE img.user_image = :user_image') 
-              ->setParameter('user_image', $id);
-         $result['Image']=$query->getResult();
-         $request= $this->getRequest();
-
-            $data  = $this->get('knp_paginator')->paginate( $result['Image'], $request->query->getInt('page', 1), 3);
-           
-            
-                        
-                        }else {return $this->render('RegBundle:Default:UserNotFound.html.twig');}
-         if($tmp==$id){  return $this->render('RegBundle:Default:myphoto.html.twig',array('data'=>$data));}
-            else{ return $this->render('RegBundle:Default:photo.html.twig',array('data'=>$data));}    }
-    
-  }
-    
-        
-        
-        
-    public function AddPhotoAction()
-    {  $tmp = $_COOKIE['id'];
-    $login=$_COOKIE['login'];
-        $fid = "/".$tmp;
-                $fs = new Filesystem();
-          try {
-              $fs->mkdir('..//web/img/profile'.$fid, 0755);
-              } catch (IOExceptionInterface $e) {
-                 echo "An error occurred while creating your directory at ".$e->getPath();
-              }
-
-                $target_dir = '../web/img/profile'.$fid.'/';
-                $target_file = $target_dir ."vasea.". pathinfo($target_dir.$_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION);
-                $uploadOk = 1;
-                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-           if(isset($_POST["submit"])) {
-                if($_FILES["fileToUpload"]["tmp_name"] == null)
-                    {$uploadOk = 0;}
-                        else{
-                            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-                                if($check !== false) {
-                                        $uploadOk = 1;
-                                            } else {
-                                                $uploadOk = 0;}}
-    
-           if ($uploadOk == 0) {}
-             else{
-                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) 
-                    {}
-                        else {}}}
-                        
-               $repository = $this->getDoctrine()
-                       ->getRepository('RegBundle:Image');
-
-                        $Image = new Image();
-                        $Image->setImage($target_file);
-                        $Image->setUserImage($login);
-                        $Image->setLikeImage('');
-                        $Image->setShareImage('');
-                        $Image->setProfileImage('');
-                       
-                        $em = $this->getDoctrine()->getEntityManager();
-                        $em->persist($Image);
-                        $em->flush();
-              return $this->redirect($this->generateUrl('photo'));
-            
-}
 
 public function TestAction($id)
 { exit ("Test proiden,id geted $id" );}
@@ -400,4 +322,9 @@ public function TestAction($id)
           if($result==null){$response=false;}else{$response=true;}
           return $response;
  }
+
+
+
+
+
 }
