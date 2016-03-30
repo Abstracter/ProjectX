@@ -10,10 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- Bootstrap -->
-     <link rel="stylesheet" href="{{ asset('css/css.css') }}" />
+     <link rel="stylesheet" href="{{ asset('css/topmenu.css') }}" />
     <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet"/>
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/topmenu.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css') }}">
     
  
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -24,7 +24,62 @@
     <![endif]-->
      {% endblock %}
   </head>
+  
+  
 <body> 
+    
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-6  col-sm-offset-3">
+                <div class="reg-header">
+                     {%if data.id !=app.request.cookies.get('id')%}
+                        {%if cer.cereri is defined%}    
+                            {%if cer.cereri !=null%}
+                             <button type="button" class="btn">Cerereaa a fost trimisa</button>
+                             {%else%}
+                              <a type="button" class="btn "  href="{{url('adaugaprieten',{'id': data.id})}}">Adauga</a>
+                               {%endif%}
+                        {%endif%}
+                        {%endif%}
+                    </div>
+                </div>
+             </div>
+        </div>
+    
+
+    <div class="container container1">
+    <div class="row">
+        <div class="col-md-3 col-lg-3">
+            <div class="hovereffect">
+            <img class="img-responsive" src="{{asset(data.image)}}"alt="{{data.username}}"  height="100" width="300" >
+                <div class="overlay">
+                    <h2>{{data.nume}}</h2>
+                    <p class="icon-links">
+                        <a href="#">
+                            <span class="fa fa-camera"></span>
+                        </a>
+                            <a href="#"> <span class="fa fa-thumbs-o-down"></span>
+                        </a>
+                        <a href="#">
+                            <span class="fa fa-thumbs-o-up"></span></a>
+                    </p>
+                </div>
+        </div>
+        </div>
+        <div class="col-md-3 hidden-xs">
+            
+        </div>
+        <div class="col-md-3  hidden-xs">
+          
+            
+        </div>
+         <div class="col-md-2 hidden-xs">
+           
+        </div>
+    </div>
+</div>
+    <!--
  <div class="container profil-container ">
      <div class="row ">
          <div class="col-md-12 ">
@@ -73,7 +128,7 @@
       </div>
     </div>                     
  </div>
-         
+   --->      
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
