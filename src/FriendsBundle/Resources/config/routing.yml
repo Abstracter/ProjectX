@@ -6,4 +6,7 @@ adaugaprieten:
     defaults: { _controller: FriendsBundle:Default:adaugaprieten }
 creaza:
     path:     /creaza
-    defaults: { _controller: FriendsBundle:Default:creaza }    
+    defaults: { _controller: FriendsBundle:Default:creaza } 
+accept:
+    path:     /accept/{id}
+    defaults: { _controller: FriendsBundle:Default:accept }

@@ -55,20 +55,17 @@ class DefaultController extends Controller
              $cerere['result']=$connect->fetchAll('SELECT DISTINCT cereri FROM `user'.$id.'` where cereri='.$_COOKIE['id']);
                 $cer=['cereri'=>$cerere['result'],];  
                   }
-            $data=['id'=>$result->getId(),
-                   'username'=> $result->getUsername(),
-                   'email'=> $result->getEmail(),
-                   'nume'=>$result->getNume(),
-                   'prenume'=>$result->getPrenume(),
-                   'info'=>$result->getInfo(),
-                   'image'=>$result->getImg(),
-                   'An'=>$result->getAn(),
-                ];
-          return $this->render('RegBundle:Default:MyProfile.html.twig',array('data'=>$data,'cer'=>$cer));}
-
-                        
+          return $this->render('RegBundle:Default:MyProfile.html.twig',array('cer'=>$cer));
+          
+        }                        
     }
-    
+    public function acceptAction($id){
+        $connect=$this->get('database_connection');
+        $connect->executeUpdate('UPDATE `user'.$_COOKIE['id'].'` SET cereri=NULL WHERE cereri='.$id);
+        $connect->executeUpdate('INSERT INTO `user'.$_COOKIE['id'].'`(friends) VALUES ('.$id.')');
+        $connect->executeUpdate('INSERT INTO `user'.$id.'`(friends) VALUES ('.$_COOKIE['id'].')');
+        
+    }
     public function creazaAction()
     {
             $connect=$this->get('database_connection');

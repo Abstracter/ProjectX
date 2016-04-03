@@ -251,11 +251,13 @@ public function MyProfileAction($id)
            foreach ($as as $b)
                if (($b!=="")||($b!==null)){$c++;$scoate[]=$b;}
                      if ($c>0){
-        $cer=['cererip'=>$connect->fetchAll('SELECT nume,prenume FROM user WHERE id IN('.implode(',',$scoate).')'),];
+        $cer=['cererip'=>$connect->fetchAll('SELECT id,nume,prenume FROM user WHERE id IN('.implode(',',$scoate).')'),];
                      }else {$cer=['cererip'=>"",];}
          }else{
    $cerere['result']=$connect->fetchAll('SELECT DISTINCT cereri FROM `user'.$id.'` where cereri='.$_COOKIE['id']);
-        $cer=['cereri'=>$cerere['result'],];  
+   $prieteni['result']=$connect->fetchAll('SELECT DISTINCT friends FROM `user'.$id.'` where friends='.$_COOKIE['id']);
+        $cer=['cereri'=>$cerere['result'],
+            'friends'=>$prieteni['result'],];  
         }
             $data=['id'=>$result->getId(),
                    'username'=> $result->getUsername(),
