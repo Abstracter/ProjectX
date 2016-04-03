@@ -21,7 +21,7 @@ class DefaultController extends Controller
                  foreach ($as as $b)
                      if (($b!=="")||($b!==null)){$c++;$scoate[]=$b;}
                       if ($c>0){
-                      $data=['friends'=>$connect->fetchAll('SELECT id,nume,prenume FROM user WHERE id IN('.implode(',',$scoate).')'),
+                      $data=['friends'=>$connect->fetchAll('SELECT id,nume,prenume,img FROM user WHERE id IN('.implode(',',$scoate).')'),
                             ];
                       }else {$data=['nofriends'=>"nu sunt prieteni",];}
          }else
