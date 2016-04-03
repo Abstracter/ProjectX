@@ -36,7 +36,6 @@
                     <br>
                     <hr>
                     <div id="prieteni">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
                         <ul class="live-search-list" style="list-style-type:none;display:inline;">
                             {%if data.friends is defined%}
                               {%for a in data.friends %}
@@ -90,6 +89,7 @@
         </div>
     </div>
 <!-- cautare prieteni -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
 <script>
 jQuery(document).ready(function($){
 $('.live-search-list li').each(function(){
@@ -100,6 +100,7 @@ var searchTerm = $(this).val().toLowerCase();
     $('.live-search-list li').each(function(){
         if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
             $(this).show();
+            $(this).css('display','inline-block');
         } else {
             $(this).hide();
         }
