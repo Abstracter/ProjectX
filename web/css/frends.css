@@ -1,0 +1,159 @@
+body{
+     background: url("../img/elitefon.ru-320.jpg") no-repeat center center;;
+}
+#onh1{
+    font-family: 'Book Antiqua', Palatino, 'Palatino Linotype', 'Palatino LT STD', Georgia, serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 26.4px;
+}
+.imagineaonline{
+    width: 75px;
+    height: 75px; 
+    padding-bottom: 10px;
+    margin-bottom: 5px; 
+    margin-top: 5px; 
+    margin-left:10px;
+    background-color: blue;
+}
+#containerf{
+    border: 2px solid #D3D3D3;
+   background: #F5F5F5;
+}
+.col-lg-3{
+    height: 500px;
+    border-left: 1px solid #D3D3D3;
+    background: #FFFAFA;
+    text-align:  center;
+   
+}
+.dropdown{
+    margin-top: 10px;
+}
+#search {
+    float: right;
+    margin-top: 9px;
+    width: 250px;
+}
+
+.search {
+    
+    padding: 5px 0;
+    width: 230px;
+    height: 30px;
+    position: relative;
+    left: 10px;
+    float: right;
+    line-height: 22px;
+}
+
+    .search input {
+        position: absolute;
+        width: 0px;
+        float: Left;
+        margin-left: 210px;
+        -webkit-transition: all 0.7s ease-in-out;
+        -moz-transition: all 0.7s ease-in-out;
+        -o-transition: all 0.7s ease-in-out;
+        transition: all 0.7s ease-in-out;
+        height: 30px;
+        line-height: 18px;
+        padding: 0 2px 0 2px;
+        border-radius:1px;
+    }
+
+        .search:hover input, .search input:focus {
+            width: 200px;
+            margin-left: 0px;
+        }
+
+.btn {
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    border-radius:1px;
+}
+.Numeprenume{
+    float: right;
+    color: black;
+}
+/*aaaaa*/
+.hovereffect {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+}
+.hovereffect .overlay {
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+	top: auto;
+	bottom: 0;
+	padding: 1em;
+	height: 4.75em;
+	background: #929596 ;
+	color: #3c4a50;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,100%,0);
+	transform: translate3d(0,100%,0);
+}
+
+.hovereffect img {
+    display: block;
+    position: relative;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+}
+
+.hovereffect:hover img {
+-webkit-transform: translate3d(0,-10%,0);
+	transform: translate3d(0,-10%,0);
+}
+
+.hovereffect h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+	float: left;
+	margin: 0px;
+	display: inline-block;
+}
+
+.hovereffect a.info {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    text-transform: uppercase;
+	color: #fff;
+	border: 1px solid #fff;
+	margin: 50px 0 0 0;
+	background-color: transparent;
+}
+.hovereffect a.info:hover {
+    box-shadow: 0 0 5px #fff;
+}
+
+
+.hovereffect p.icon-links a {
+	float: right;
+	color: #3c4a50;
+	font-size: 1.4em;
+}
+
+.hovereffect:hover p.icon-links a:hover,
+.hovereffect:hover p.icon-links a:focus {
+	color: #252d31;
+}
