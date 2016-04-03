@@ -5,3 +5,8 @@ hr{
     background: black;
     height: 2px;
 }
+.photo-header1{
+    background: #ECF0F1;
+    border: 1px solid #D0D3D4 ;
+    padding-top: 10px;
+}

@@ -70,13 +70,19 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <form method="POST" action="{{ url('reg_homepage') }}" id="register"> 
-                                      
-                                    <input class="myButton"  type="submit" name="submit" value="Log in">
-                                    <input type="button" class="myButton"value="Registration">
+                                         <input class="myButton"  type="submit" name="submit" value="Log in">
+                                        <input type="button" class="myButton"value="Registration">
                                     </form><br><br>
-                                    <a class="forpass"href="#">Forgot username or password</a>
+                                    <a class="forpass"href="#">Forgot password?</a>
                                 </div>
                             </div>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                       {% for flashMessage in app.session.flashbag.get('notice') %}
+                                         <p style="color:red;">{{ flashMessage }}<p>
+                                           {% endfor %}
+                                   </div>
+                              </div>
                         </div>
                     </form>
                 </div>

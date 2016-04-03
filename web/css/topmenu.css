@@ -125,3 +125,26 @@ padding-top:10px;
 	-webkit-transition-delay: 0.2s;
 	transition-delay: 0.2s;
 }
+/*followrs*/
+.followrs a{
+    font-family: monaco, Consolas, 'Lucida Console', monospace;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	
+	line-height: 26.4px;
+    color:#D0D3D4;
+}
+.likes a  {
+    font-family: monaco, Consolas, 'Lucida Console', monospace;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	
+	line-height: 26.4px;
+  color:#D0D3D4;
+  
+}
+.container1{
+  border-bottom: 2px solid red;
+}
