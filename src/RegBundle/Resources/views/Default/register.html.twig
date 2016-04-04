@@ -1,8 +1,14 @@
 {% extends 'base.html.twig' %}
-{% block header %}{%endblock%}
+{% block header %}
+
+    <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet"/> 
+    <link rel="stylesheet" href="{{ asset('css/registration.css')}}"/>
+    <link rel="stylesheet" href="{{asset ('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset ('css/font-awesome.min.css')}}">
+{%endblock%}
 {% block body %}
 <body>
-    <div class="reg-main">
+ <!--   <div class="reg-main">
         <div >
     <h2>Registration</h2>
     
@@ -33,7 +39,7 @@
 <label>User Name</label>
 <input placeholder="Confirm Password" type="password" maxlength="32" size="10" name="confirmpass">
 </div>
-        <div class="form-group">
+<div class="form-group">
             <div class="maxl">
   <label class="radio inline"> 
       <input type="radio" name="sex" value="male" checked>
@@ -44,7 +50,7 @@
       <span>Female </span> 
   </label>
 </div>
-        </div>  
+</div>  
 <div class="form-group">
 
 <select id="year" name="an">
@@ -91,5 +97,83 @@
       <p style="color:red;">{{ flashMessage }}<p>
 
 {% endfor %}
+-->
+<div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-6  col-sm-offset-3 ">
+            <form method="POST" action="{{ url('regist') }}" id="sign-up" enctype="multipart/form-data">
+                <div class="reg-header">
+                    <h1 class="log">Registration</h1>
+                    <hr>
+                    <div class="input-group">
+                        <input class="form-control "id="form-input" type="text"  name="username"  placeholder="UserName">
+                    </div>
+                      <br>
+                    <div class="input-group ">
+                        <input class="form-control" id="form-input" type="text"  name="pass"   placeholder="your@email.com">
+                     </div>
+                    <br>
+                    <div class="input-group  " >
+
+                        <input class="form-control" id="form-input" type="password"  name="pass"  value="" placeholder="Password">
+                     </div>
+                    <br>
+                    <div class="input-group">
+                        <input class="form-control" id="form-input" type="password"  name="pass"   placeholder="Confirm Password">
+                     </div>
+                    <br>
+                    <div class="input-group ">
+                        <input class="form-control" id="form-input" type="text"  name="nume"   placeholder="Name">
+                     </div>
+                    <br>
+                    <div class="input-group ">
+                        <input class="form-control" id="form-input" type="text"  name="prenume"   placeholder="Subname">
+                     </div>
+                    <br>
+                    <div class="select_style">
+                    <select id="year" name="an">
+                      <script>
+                      var myDate = new Date();
+                      var year = myDate.getFullYear();
+                      for(var i = year; i > 1900; i--){
+                          document.write('<option value="'+i+'">'+i+'</option>');
+                      }
+                        </script>
+                        </select>
+                            <select id='gMonth1' name="luna">
+                        <option value=''>--Select Month--</option>
+                        <option selected value='1'>Janaury</option>
+                        <option value='2'>February</option>
+                        <option value='3'>March</option>
+                        <option value='4'>April</option>
+                        <option value='5'>May</option>
+                        <option value='6'>June</option>
+                        <option value='7'>July</option>
+                        <option value='8'>August</option>
+                        <option value='9'>September</option>
+                        <option value='10'>October</option>
+                        <option value='11'>November</option>
+                        <option value='12'>December</option>
+                        </select>
+                     <select id="day" name="zi">
+                      <script>
+                      for(var j = 1; j <= 31; j++){
+                          document.write('<option value="'+j+'">'+j+'</option>');
+                      }
+                        </script>
+                        </select>
+                    </div>
+                         <hr>
+                        <input type="button" class="myButton"  value="Sign UP" name="submit">
+                    </div>
+                    {% for flashMessage in app.session.flashbag.get('notice') %}
+                          <p style="color:red;">{{ flashMessage }}<p>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 {% endblock %}

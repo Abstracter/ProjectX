@@ -12,17 +12,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
     
 }
 .reg-header{
-        height: 350px;
+    height: 600px;
     text-align: center;
-     background-color:RGBa(48, 109, 140,0.7);
+    background-color: #476e9e ;
     padding: 10px 20px 10px 20px;
-    border:1px solid RGB(135, 206, 235);
+    border: 1px solid #34495E;
+    width: 300px;
+    margin: auto;
 }
 .container{
+   
     margin-top:100px;
 }
 .log{
-    
     text-align: center;
     color: aliceblue;
 }
@@ -69,19 +71,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 .forpass{
     color: aliceblue;
 }
-.input-group-addon{
-    margin-right: 20px; 
-     background-color: rgba(70, 130, 180,1);
-    height: 40px;
-    border: none;
-}
-
 #form-input{
-    margin: auto;
+    
     position: relative;
     display: block;
+    margin-left: 20px;
     padding: 0.8em;
-    margin-right: 20px;
+    width: 100%;
     height: 40px;
     border: none;
     border-radius: 0;
@@ -90,7 +86,56 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-appearance: none;
 }
-.input-group {
-    margin:auto;
-    width: 75%;
+.input-group{
+    text-align: center;
+}
+/* The CSS */
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:18px}
+}
+
+label {position:relative}
+label:after {
+    content:'<>';
+    font:11px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px; top:2px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+label:before {
+    content:'';
+    right:6px; top:0px;
+    width:20px; height:20px;
+    background:#f8f8f8;
+    position:absolute;
+    pointer-events:none;
+    display:block;
 }
